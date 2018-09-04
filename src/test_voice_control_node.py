@@ -8,9 +8,8 @@ import argparse
 from voicecontrol_class import ASRControl
 
 
-def run(parser):
-  
-    args = parser.parse_args()  
+def run(args):
+      
     voicecontrol = ASRControl(args.model, args.lexicon, args.kwlist, args.rospub)
 
     rospy.loginfo('Running until shutdown (Ctrl-C).')
@@ -46,4 +45,5 @@ if __name__ == '__main__':
         help='''ROS publisher destination
         (default: mobile_base/commands/velocity)''')
     
-    run(parser)
+    args = parser.parse_args()
+    run(args)

@@ -25,7 +25,7 @@ sudo apt-get install pocketsphinx-hmm-en-*
 Run the testing script:
 
 ```
-rosrun demo_voice_control test_voice_control.py
+rosrun demo_voice_control test_voice_control_node.py
 ```
 
 Speak one of the default commands ( start / halt / open / close / robot )
