@@ -16,7 +16,7 @@ import pyaudio
 
 
 class ASRControl(object):
-    """Simple voice control interface for ROS turtlebot
+    """Simple voice control interface for ROS command
 
     Attributes:
         model: model path
@@ -59,7 +59,7 @@ class ASRControl(object):
 
     def parse_asr_result(self):
         """
-        move the robot based on ASR hypothesis
+        publish commands to message based on ASR hypothesis
         """
         if self.decoder.hyp() != None:
             print ([(seg.word, seg.prob, seg.start_frame, seg.end_frame)
@@ -110,21 +110,25 @@ class ASRControl(object):
         self.pub_.publish(Twist())
         rospy.sleep(1)
 
-if __name__ == '__main__':
+if __name__ == '__main__':    
     parser = argparse.ArgumentParser(
-        description='Control ROS turtlebot using pocketsphinx.')
+        description='Voice control test using pocketsphinx.')
+    
     parser.add_argument('--model', type=str,
         default='/usr/share/pocketsphinx/model/hmm/en_US/hub4wsj_sc_8k',
         help='''acoustic model path
         (default: /usr/share/pocketsphinx/model/hmm/en_US/hub4wsj_sc_8k)''')
+    
     parser.add_argument('--lexicon', type=str,
-        default='voice_cmd.dic',
+        default='/home/nbfigueroa/proj/catkin_ws_lags/src/demo-voice-control/commands/voice_cmd.dic',
         help='''pronunciation dictionary
         (default: voice_cmd.dic)''')
+    
     parser.add_argument('--kwlist', type=str,
-        default='voice_cmd.kwlist',
+        default='/home/nbfigueroa/proj/catkin_ws_lags/src/demo-voice-control/commands/voice_cmd.kwlist',
         help='''keyword list with thresholds
         (default: voice_cmd.kwlist)''')
+    
     parser.add_argument('--rospub', type=str,
         default='mobile_base/commands/velocity',
         help='''ROS publisher destination
