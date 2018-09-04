@@ -22,13 +22,13 @@ sudo apt-get install pocketsphinx-hmm-en-*
 
 ## Run an example to check if voice recognition works 
 
-Run the script:
+Run the testing script:
 
 ```
-python test_voice_control.py
+rosrun demo_voice_control test_voice_control.py
 ```
 
-Speak one of the default commands ( forward / move / stop / left / right / back / full speed / half speed )
+Speak one of the default commands ( start / stop / open / close / robot )
 
 You can see the messages of the words you spoke in:
 ```
