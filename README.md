@@ -1,38 +1,26 @@
-# Voice control for ROS turtlebot with pocketsphinx
+# Voice control for Easy Kinesthetic Teaching with pocketsphinx
 
-The script shows how to control ROS turtlebot 
-with English keywords using pocketsphinx
+Code adapted from https://github.com/gorinars/ros_voice_control.git
 
-Compared to [an earlier implementation](https://github.com/mikeferguson/pocketsphinx), this one:
-- enables the keyword search mode, which should better filter not needed words
-- uses [pocketsphinx-python](https://github.com/cmusphinx/pocketsphinx-python) instead of Gstreamer
-- is really simple (just a script to run)
-
-It was currently tested only for linux and ROS Indigo turtlebot
+The script shows how to control a gripper and start/stop measurement recordings with English keywords using pocketsphinx
 
 ## Installation
 
 ### Install pocketsphinx with dependencies
-
 ```
 sudo apt-get install -y python python-dev python-pip build-essential swig libpulse-dev git
-sudo pip install pyaudio
+sudo apt-get install libasound-dev
+sudo apt-get install libasound2-dev
+sudo apt-get install python-pyaudio
 sudo pip install pocketsphinx
 ```
 
-### Install ROS
-
-If you are new to ROS (like me), check this [introductory video](https://www.youtube.com/watch?v=9U6GDonGFHw) for ROS installation details
-
-More instructions can be found on [ROS website](http://wiki.ros.org/ROS/Installation)
-
-## Running an example 
-
-Run turtlebot environment:
-
+### Install language models
 ```
-roslaunch turtlebot_gazebo turtlebot_world.launch
+sudo apt-get install pocketsphinx-hmm-en-*
 ```
+
+## Run an example to check if voice recognition works 
 
 In a separate terminal run the script:
 
@@ -41,6 +29,10 @@ python ros_voice_control.py
 ```
 
 Speak one of the default commands ( forward / move / stop / left / right / back / full speed / half speed )
+
+
+## Run Teaching script with Robotiq gripper 
+
 
 ## Using your own keywords
 
@@ -53,4 +45,3 @@ Word pronunciations for English can be found in
 You can also download pocketsphinx acoustic models for several other languages [here](https://sourceforge.net/projects/cmusphinx/files/)
 
 Read more about pocketsphinx on the official website: http://cmusphinx.sourceforge.net
-
