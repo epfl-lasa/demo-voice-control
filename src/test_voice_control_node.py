@@ -43,7 +43,7 @@ if __name__ == '__main__':
     parser.add_argument('--rospub', type=str,
         default='demo_voice_control/command',
         help='''ROS publisher destination
-        (default: mobile_base/commands/velocity)''')
+        (default: demo_voice_control/command)''')
     
     args = parser.parse_args()
     run(args)
