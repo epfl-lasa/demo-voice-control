@@ -28,7 +28,7 @@ Run the testing script:
 rosrun demo_voice_control test_voice_control.py
 ```
 
-Speak one of the default commands ( start / stop / open / close / robot )
+Speak one of the default commands ( start / halt / open / close / robot )
 
 You can see the messages of the words you spoke in:
 ```
