@@ -22,14 +22,18 @@ sudo apt-get install pocketsphinx-hmm-en-*
 
 ## Run an example to check if voice recognition works 
 
-In a separate terminal run the script:
+Run the script:
 
 ```
-python ros_voice_control.py
+python test_voice_control.py
 ```
 
 Speak one of the default commands ( forward / move / stop / left / right / back / full speed / half speed )
 
+You can see the messages of the words you spoke in:
+```
+
+```
 
 ## Run Teaching script with Robotiq gripper 
 
