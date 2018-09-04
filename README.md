@@ -1,4 +1,4 @@
-# Voice control for Easy Kinesthetic Teaching with pocketsphinx
+## Voice control for Easy Kinesthetic Teaching with pocketsphinx
 
 Code adapted from https://github.com/gorinars/ros_voice_control.git
 
