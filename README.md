@@ -27,13 +27,11 @@ voice_command_test.dic', once word is recognized it publishes them as a string m
 ```
 rosrun demo_voice_control test_voice_control_node.py
 ```
-
 Speak one of the default commands ( start / halt / open / close / robot )
 
 You can see the messages of the words you spoke in:
 ```
 rostopic echo /demo_voice_control/command
-
 ```
 ### Using your own keywords
 
