@@ -45,9 +45,9 @@ Word pronunciations for English can be found in
 
 You can also download pocketsphinx acoustic models for several other languages [here](https://sourceforge.net/projects/cmusphinx/files/)
 
-### Read more about pocketsphinx on the official website: http://cmusphinx.sourceforge.net
+Read more about pocketsphinx on the official website: http://cmusphinx.sourceforge.net
 
----
+
 ## Teaching script for voice-control of Robotiq gripper + Data Recording
 
 
