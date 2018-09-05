@@ -32,10 +32,11 @@ Speak one of the default commands ( start / halt / open / close / robot )
 
 You can see the messages of the words you spoke in:
 ```
+rostopic echo /demo_voice_control/command
 
 ```
 
-## Run Teaching script with Robotiq gripper 
+## Run Teaching script with Robotiq gripper + Data Recording
 
 
 ## Using your own keywords
