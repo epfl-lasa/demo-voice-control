@@ -59,5 +59,8 @@ First you must install the [Robotiq](http://wiki.ros.org/robotiq) gripper contro
 roslaunch demo_voice_control teach_voice_control.launch
 
 ```
+- To run full teaching commands with voice acivation
+```
+roslaunch demo_voice_control teach_voice_control.launch record:=true ...
 
-
+```
