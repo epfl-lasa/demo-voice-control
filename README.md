@@ -20,9 +20,9 @@ sudo pip install pocketsphinx
 sudo apt-get install pocketsphinx-hmm-en-*
 ```
 
-### Run voice recognition example 
-
-Run the testing script:
+### Run simple voice recognition example 
+The simple voicecontrol_class.py implements the Voice Recognition system for the dictionary defined in 'demo-voice-control/commands/
+voice_command_test.dic', once word is recognized it publishes them as a string message. To test run the following script:
 
 ```
 rosrun demo_voice_control test_voice_control_node.py
@@ -54,12 +54,17 @@ Read more about pocketsphinx on the official website: http://cmusphinx.sourcefor
 First you must install the [Robotiq](http://wiki.ros.org/robotiq) gripper controller and dependencies, follow the instuctions here: https://github.com/epfl-lasa/lasa-wiki/wiki/Robotiq-gripper
 
 ### Examples
-- To run simply open/close commands with voice activation
+The teach_voicecontrol_class.py implements the Voice Recognition system for the dictionary defined in 'demo-voice-control/commands/
+voice_command.dic' to open/close the gripper with voice activation and start/stop data recording.  
+
+- To use only the gripper command, run the following launch file:
 ```
 roslaunch demo_voice_control teach_voice_control.launch
 
 ```
-- To run full teaching commands with voice acivation
+If you speak one of the default commands ( open / close ) the gripper should open / close.
+
+- To run full teaching commands with voice acivation, run the following launch file:
 ```
 roslaunch demo_voice_control teach_voice_control.launch record:=true ...
 
