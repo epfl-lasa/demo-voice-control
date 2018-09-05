@@ -58,21 +58,23 @@ class ASRControl(object):
             self.decoder.end_utt()
             self.decoder.start_utt()
             # you may want to modify the main logic here
-            if seg.word.find("start") > -1:
-                self.pub_.publish('start')
+            if seg.word.find("back") > -1:
+                self.pub_.publish('back')
 
-            if seg.word.find("halt") > -1:
-                self.pub_.publish('halt')
+            if seg.word.find("forward") > -1:
+                self.pub_.publish('forward')
 
-            if seg.word.find("open") > -1:
-                self.pub_.publish('open')
+            if seg.word.find("left") > -1:
+                self.pub_.publish('left')
 
-            if seg.word.find("close") > -1:
-                self.pub_.publish('close')
+            if seg.word.find("right") > -1:
+                self.pub_.publish('right')
 
-            if seg.word.find("robot") > -1:
-                self.pub_.publish('robot')
-
+            if seg.word.find("move") > -1:
+                self.pub_.publish('move')
+            
+            if seg.word.find("stop") > -1:
+                self.pub_.publish('stop')
 
     def shutdown(self):
         """

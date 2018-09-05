@@ -5,7 +5,7 @@
 
 import rospy
 import argparse
-from voicecontrol_class import ASRControl
+from test_voicecontrol_class import ASRControl
 
 
 def run(args):
@@ -30,13 +30,15 @@ if __name__ == '__main__':
         help='''acoustic model path
         (default: /usr/share/pocketsphinx/model/hmm/en_US/hub4wsj_sc_8k)''')
     
+    # You must modify these paths
     parser.add_argument('--lexicon', type=str,
-        default='/home/nbfigueroa/proj/catkin_ws_lags/src/demo-voice-control/commands/voice_cmd.dic',
+        default='/home/nbfigueroa/proj/catkin_ws_lags/src/demo-voice-control/commands/voice_cmd_test.dic',
         help='''pronunciation dictionary
         (default: voice_cmd.dic)''')
     
+    # You must modify these paths
     parser.add_argument('--kwlist', type=str,
-        default='/home/nbfigueroa/proj/catkin_ws_lags/src/demo-voice-control/commands/voice_cmd.kwlist',
+        default='/home/nbfigueroa/proj/catkin_ws_lags/src/demo-voice-control/commands/voice_cmd_test.kwlist',
         help='''keyword list with thresholds
         (default: voice_cmd.kwlist)''')
     
