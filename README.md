@@ -4,6 +4,7 @@ Code adapted from https://github.com/gorinars/ros_voice_control.git
 
 The script shows how to control a gripper and start/stop measurement recordings with English keywords using pocketsphinx
 
+--
 ## Installation
 
 ### Install pocketsphinx with dependencies
@@ -20,7 +21,7 @@ sudo pip install pocketsphinx
 sudo apt-get install pocketsphinx-hmm-en-*
 ```
 
-## Run an example to check if voice recognition works 
+#### Run voice recognition example 
 
 Run the testing script:
 
@@ -35,10 +36,6 @@ You can see the messages of the words you spoke in:
 rostopic echo /demo_voice_control/command
 
 ```
-
-## Run Teaching script with Robotiq gripper + Data Recording
-
-
 ## Using your own keywords
 
 You can run this with any set of words. To do that, you need lexicon and keyword list files
@@ -50,3 +47,9 @@ Word pronunciations for English can be found in
 You can also download pocketsphinx acoustic models for several other languages [here](https://sourceforge.net/projects/cmusphinx/files/)
 
 Read more about pocketsphinx on the official website: http://cmusphinx.sourceforge.net
+--
+
+## Teaching script for voice-control of Robotiq gripper + Data Recording
+
+
+
