@@ -46,7 +46,7 @@ You can also download pocketsphinx acoustic models for several other languages [
 Read more about pocketsphinx on the official website: http://cmusphinx.sourceforge.net
 
 
-## Voice-control of Robotiq gripper + Data Recording
+## Application: Voice-control of Robotiq gripper + Data Recording
 
 ### Dependencies
 First you must install the [Robotiq](http://wiki.ros.org/robotiq) gripper controller and dependencies, follow the instuctions here: https://github.com/epfl-lasa/lasa-wiki/wiki/Robotiq-gripper
