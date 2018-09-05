@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<launch>
+  <arg name="ip" default="192.168.1.11" />
+
+# Run Robotiq Gripper Controller
+ <node name="SModelTcpNode" pkg="robotiq_s_model_control" type="SModelTcpNode.py"  args="$(arg ip)" output="screen"/>
+
+# Run Voice Control Node
+ <node pkg="demo_voice_control" name="teach_voice_control_node" type="teach_voice_control_node.py" output="screen">
+  <param name="model" value="/usr/share/pocketsphinx/model/hmm/en_US/hub4wsj_sc_8k" />
+  <param name="lexicon" value="/home/nbfigueroa/proj/catkin_ws_lags/src/demo-voice-control/commands/voice_cmd.dic" />
+  <param name="kwlist" value="/home/nbfigueroa/proj/catkin_ws_lags/src/demo-voice-control/commands/voice_cmd.kwlist" />
+  <param name="rospub" value="demo_voice_control/command" />  
+ </node>  
+
+</launch>
