@@ -58,12 +58,10 @@ voice_command.dic' to open/close the gripper with voice activation and start/sto
 - To use only the gripper command, run the following launch file:
 ```
 roslaunch demo_voice_control teach_voice_control.launch
-
 ```
 If you speak one of the default commands ( open / close ) the gripper should open / close.
 
 - To run full teaching commands with voice acivation, run the following launch file:
 ```
 roslaunch demo_voice_control teach_voice_control.launch record:=true ...
-
 ```
