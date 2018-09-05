@@ -3,7 +3,6 @@
 Code adapted from https://github.com/gorinars/ros_voice_control.git
 
 The script shows how to control a gripper and start/stop measurement recordings with English keywords using pocketsphinx
----
 
 ## Installation
 
