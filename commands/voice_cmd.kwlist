@@ -1,5 +1,5 @@
-START /1e-1/
-HALT /1e-1/
-OPEN /1e-1/	
-CLOSE /1e-1/	
-ROBOT /1e-1/	
+START /1e-3/
+HALT /1e-3/
+OPEN /1e-5/	
+CLOSE /1e-10/	
+ROBOT /1e-3/	
