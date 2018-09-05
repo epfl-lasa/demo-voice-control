@@ -61,7 +61,7 @@ roslaunch demo_voice_control teach_voice_control.launch
 ```
 If you speak one of the default commands ( open / close ) the gripper should open / close.
 
-- To run full teaching commands with voice acivation, run the following launch file [TODO]:
+- To run full teaching commands with voice acivation, run the following launch file <p style='color:red'>[TODO]</p>:
 ```
 roslaunch demo_voice_control teach_voice_control.launch record:=true ...
 ```
