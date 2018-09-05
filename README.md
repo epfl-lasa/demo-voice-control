@@ -48,7 +48,7 @@ You can also download pocketsphinx acoustic models for several other languages [
 Read more about pocketsphinx on the official website: http://cmusphinx.sourceforge.net
 
 
-## Teaching script for voice-control of Robotiq gripper + Data Recording
+## Voice-control of Robotiq gripper + Data Recording
 
 
 
