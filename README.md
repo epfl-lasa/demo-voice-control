@@ -50,5 +50,14 @@ Read more about pocketsphinx on the official website: http://cmusphinx.sourcefor
 
 ## Voice-control of Robotiq gripper + Data Recording
 
+### Dependencies
+First you must install the Robotiq gripper controller and dependencies, follow the instuctions here: https://github.com/epfl-lasa/lasa-wiki/wiki/Robotiq-gripper
+
+### Examples
+- To run simply open/close commands with voice activation
+```
+roslaunch demo_voice_control teach_voice_control.launch
+
+```
 
 
