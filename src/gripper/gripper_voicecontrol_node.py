@@ -3,14 +3,9 @@
 """This node is a voice control for easy kinesthetic teachin purposed in ROS 
 in open/close of robotiq 2-finger gripper and start/halt data recording
 """ 
-# import roslib; roslib.load_manifest('robotiq_s_model_control')
-# import rospy
-# from robotiq_s_model_control.msg import _SModel_robot_output  as outputMsg
-# from time import sleep
-
 import rospy
 import argparse
-from teach_voicecontrol_class import ASRControl
+from gripper_voicecontrol_class import ASRControl
 
 
 def run_node(): 

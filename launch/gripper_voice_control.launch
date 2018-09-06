@@ -6,10 +6,11 @@
  <node name="SModelTcpNode" pkg="robotiq_s_model_control" type="SModelTcpNode.py"  args="$(arg ip)" output="screen"/>
 
 # Run Voice Control Node
- <node pkg="demo_voice_control" name="teach_voice_control_node" type="teach_voicecontrol_node.py" output="screen">
+ <node pkg="demo_voice_control" name="teach_voice_control_node" type="gripper_voicecontrol_node.py" output="screen">
   <param name="model" value="/usr/share/pocketsphinx/model/hmm/en_US/hub4wsj_sc_8k" />
-  <param name="lexicon" value="$(find demo_voice_control)/commands/voice_cmd_teach.dic" />
-  <param name="kwlist" value="$(find demo_voice_control)/commands/voice_cmd_teach.kwlist" />
+  <!-- <param name="model" value="$(find demo_voice_control)/hmm-models/wsj_all_sc8k.cd_semi_5000" /> -->
+  <param name="lexicon" value="$(find demo_voice_control)/commands/voice_cmd_grip.dic" />
+  <param name="kwlist" value="$(find demo_voice_control)/commands/voice_cmd_grip.kwlist" />
   <param name="rospub" value="demo_voice_control/command" />  
  </node>  
 

@@ -5,6 +5,7 @@ from std_msgs.msg import String
 from pocketsphinx.pocketsphinx import *
 from sphinxbase.sphinxbase import *
 import pyaudio
+from sound_play.libsoundplay import SoundClient
 
 # Libraries for gripper commands
 import roslib; roslib.load_manifest('robotiq_s_model_control')
@@ -77,11 +78,6 @@ class ASRControl(object):
             self.decoder.end_utt()
             self.decoder.start_utt()
             # Sending recognized word as string
-            if seg.word.find("start") > -1:
-                self.msg_string.data = 'start'                
-            if seg.word.find("halt") > -1:
-                self.msg_string.data = 'halt'
-            
             if seg.word.find("open") > -1:                
                 self.msg_string.data = 'open'            
                 self.msg_gripper = self.genCommand("o", self.msg_gripper)     
@@ -90,9 +86,16 @@ class ASRControl(object):
                 self.msg_string.data = 'close'
                 self.msg_gripper = self.genCommand("c", self.msg_gripper)     
                 self.pub_gripper.publish(self.msg_gripper)
+            if seg.word.find("grip") > -1:
+                self.msg_string.data = 'grip'
+                self.msg_gripper = self.genCommand("c", self.msg_gripper)     
+                self.pub_gripper.publish(self.msg_gripper)
 
             if seg.word.find("robot") > -1:
-                self.msg_string.data = 'robot'
+                self.msg_string.data = 'robot'                            
+                self.soundhandle = SoundClient()
+                rospy.sleep(1)
+                self.soundhandle.say('Yes, mother.')
 
             self.pub_string.publish(self.msg_string)
 
