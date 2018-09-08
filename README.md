@@ -4,7 +4,7 @@ Code adapted from https://github.com/gorinars/ros_voice_control.git
 
 The script shows how to control a gripper and start/stop measurement recordings with English keywords using pocketsphinx
 
-NOTE: The recognition engine is not perfect as it is a simple HMM, does not reliably reject noise, oftentime has false positives or no recognition after uttering the same word multiple times. The only thing that can be improved is the thresholds in the `.kwlist` or adapt the HMM, this can be done by following this tutorial https://cmusphinx.github.io/wiki/tutorialadapt/. A better option would be to use the Goggle Cloud Speech engine, for which a ROS-package already exists: http://wiki.ros.org/speech_recog_uc. This is if you need really reliable recognition.
+NOTE: The recognition engine is not perfect as it is a simple HMM, does not reliably reject noise, oftentime has false positives or no recognition after uttering the same word multiple times. The only thing that can be improved is the thresholds in the `.kwlist` or adapt the HMM, this can be done by following this tutorial https://cmusphinx.github.io/wiki/tutorialadapt/. A better option would be to use the Google Cloud Speech engine, for which a ROS-package already exists: http://wiki.ros.org/speech_recog_uc. This is if you need really reliable recognition.
 
 ## Installation
 
