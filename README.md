@@ -4,7 +4,7 @@ Code adapted from https://github.com/gorinars/ros_voice_control.git
 
 The script shows how to control a gripper and start/stop measurement recordings with English keywords using pocketsphinx
 
-NOTE: The recognition engine is not perfect as it is a simple HMM, does not reliably reject noise, oftentime has false positives or no recognition after uttering the same word multiple times. The only thing that can be improved is the thresholds in the `.kwlist` or adapt the HMM, this can be done by following this tutorial https://cmusphinx.github.io/wiki/tutorialadapt/. A better option would be to use the Goggle Cloud Speech engine, for which a ROS-package already exists: http://wiki.ros.org/speech_recog_uc. This is if you need really reliable recognition.
+NOTE: The recognition engine is not perfect as it is a simple HMM, does not reliably reject noise, oftentime has false positives or no recognition after uttering the same word multiple times. The only thing that can be improved is the thresholds in the `.kwlist` or adapt the HMM, this can be done by following this tutorial https://cmusphinx.github.io/wiki/tutorialadapt/. A better option would be to use the Google Cloud Speech engine, for which a ROS-package already exists: http://wiki.ros.org/speech_recog_uc. This is if you need really reliable recognition.
 
 ## Installation
 
@@ -57,14 +57,21 @@ First you must install the [Robotiq](http://wiki.ros.org/robotiq) gripper contro
 The teach_voicecontrol_class.py implements the Voice Recognition system for the dictionary defined in 'demo-voice-control/commands/
 voice_command.dic' to open/close the gripper with voice activation and start/stop data recording.  
 
-- To use only the gripper command, run the following launch file:
+- To use only the ***gripper commands***, run the following launch file:
 ```
 roslaunch demo_voice_control gripper_voice_control.launch
 ```
 If you speak one of the default commands ( open / close ) the gripper should open / close.
 
-- **[TODO]** To run full teaching commands with voice activation, run the following launch file:
+- To run ***full teaching commands*** with voice activation, run the following launch file:
+
+Besides controlling the gripper, this script will trigger record/stop for the data recorder from [record_ros](https://github.com/epfl-lasa/record_ros). Specifically, it will trigger the ros service calls that are generally typed in a terminal:
 ```
-roslaunch demo_voice_control teach_voice_control.launch record:=true ...
+$ rosservice call /record/cmd "cmd: 'record/stop'"
+
 ```
-If you speak one of the default commands ( open / close / start / halt ) the gripper should open / close and data recordings will start / halt.
+with the (recording / stop) commands. To test, run the following launch file: 
+```
+roslaunch demo_voice_control teach_voice_control.launch
+```
+If you speak one of the default commands ( open / close / recording / stop ) the gripper should open / close and data recordings will start / stop.
