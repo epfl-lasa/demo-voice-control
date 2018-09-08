@@ -12,6 +12,9 @@ import roslib; roslib.load_manifest('robotiq_s_model_control')
 from robotiq_s_model_control.msg import _SModel_robot_output  as outputMsg
 from time import sleep
 
+# Library for record_ros commands
+from record_ros.srv import String_cmd
+
 
 class ASRControl(object):
     """Simple voice control interface for ROS command
@@ -27,6 +30,7 @@ class ASRControl(object):
         # initialize ROS        
         self.msg_string       = String()            
         self.msg_gripper      = outputMsg.SModel_robot_output();
+        self.gripper_state    = 0
         rospy.on_shutdown(self.shutdown)
 
         # you may need to change publisher destination depending on what you run
@@ -82,11 +86,13 @@ class ASRControl(object):
                 self.msg_string.data = 'open'            
                 self.msg_gripper = self.genCommand("o", self.msg_gripper)     
                 self.pub_gripper.publish(self.msg_gripper)
+                self.gripper_state = 0
             
             if seg.word.find("close") > -1:
                 self.msg_string.data = 'close'
                 self.msg_gripper = self.genCommand("c", self.msg_gripper)     
                 self.pub_gripper.publish(self.msg_gripper)
+                self.gripper_state = 1
 
             if seg.word.find("robot") > -1:
                 self.msg_string.data = 'robot'                            
@@ -96,15 +102,24 @@ class ASRControl(object):
             
             if seg.word.find("recording") > -1:
                 self.msg_string.data = 'recording'                            
-                self.soundhandle = SoundClient()
-                rospy.sleep(1)
-                self.soundhandle.say('Started recording.')
+                resp = self.send_record_command('record')
+                print resp
+                if 'starting recorder' in resp:
+                    self.soundhandle = SoundClient()
+                    rospy.sleep(1)
+                    self.soundhandle.say('Started recording.')
+                else:
+                    self.soundhandle = SoundClient()
+                    rospy.sleep(1)
+                    self.soundhandle.say('Recording failed.')
 
             if seg.word.find("stop") > -1:
-                self.msg_string.data = 'stop'                            
-                self.soundhandle = SoundClient()
-                rospy.sleep(1)
-                self.soundhandle.say('Stopped recording.')
+                if self.gripper_state == 0:
+                    self.msg_string.data = 'stop'  
+                    resp = self.send_record_command('stop')                          
+                    self.soundhandle = SoundClient()
+                    rospy.sleep(1)
+                    self.soundhandle.say('Stopped recording.')
 
             self.pub_string.publish(self.msg_string)
 
@@ -129,6 +144,15 @@ class ASRControl(object):
             command.rPRA = 0
 
         return command
+
+    def send_record_command(self, string_cmd):
+        rospy.wait_for_service('/record/cmd')
+        try:
+            record_ros_srv = rospy.ServiceProxy('/record/cmd', String_cmd)
+            resp = record_ros_srv(string_cmd)
+            return resp.res
+        except rospy.ServiceException, e:
+            print "ROS Record - Service call failed: %s"%e
 
 
     def shutdown(self):

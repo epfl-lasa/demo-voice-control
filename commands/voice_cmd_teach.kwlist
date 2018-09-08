@@ -1,5 +1,5 @@
-OPEN /1e-3/	
+OPEN /1e-10/	
 CLOSE /1e-10/	
 ROBOT /1e-3/	
-STOP /1e-3/	
+STOP /1e-10/	
 RECORDING /1e-50/	
