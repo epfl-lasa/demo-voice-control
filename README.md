@@ -64,7 +64,8 @@ roslaunch demo_voice_control gripper_voice_control.launch
 If you speak one of the default commands ( open / close ) the gripper should open / close.
 
 - To run full teaching commands with voice activation, run the following launch file:
-Apart from controlling the gripper, this script will rigger record/stop for the data recorder from [record_ros](https://github.com/epfl-lasa/record_ros). Specifically, it will trigger the ros service calls that are generally typed in a terminal:
+
+Besides controlling the gripper, this script will trigger record/stop for the data recorder from [record_ros](https://github.com/epfl-lasa/record_ros). Specifically, it will trigger the ros service calls that are generally typed in a terminal:
 ```
 $ rosservice call /record/cmd "cmd: 'record/stop'"
 
