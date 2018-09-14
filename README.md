@@ -75,3 +75,5 @@ with the (recording / stop) commands. To test, run the following launch file:
 roslaunch demo_voice_control teach_voice_control.launch
 ```
 If you speak one of the default commands ( open / close / recording / stop ) the gripper should open / close and data recordings will start / stop.
+
+**Contact**: [Nadia Figueroa](http://lasa.epfl.ch/people/member.php?SCIPER=238387) (nadia.figueroafernandez AT epfl dot ch)
